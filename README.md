@@ -1,10 +1,13 @@
 # lrc.d
 
 ## 🛠
-- zsh
-- vim
-- tmux
+
+- **bash**
+- **zsh**
+- **vim**
+- **tmux**
 
 ## Reference
 
-- [seamile tercher](https://github.com/seamile/rc.d)
+- [seamile teacher](https://github.com/seamile/rc.d)
+
