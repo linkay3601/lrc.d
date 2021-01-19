@@ -1,6 +1,6 @@
 " source .rc.d/vimrc
 if filereadable(expand("$HOME/.rc.d/vimrc"))
-  source $HOME/.rc.d/vimrc
+    source $HOME/.rc.d/vimrc
 endif
 
 " VIM 自定义
@@ -95,8 +95,8 @@ let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
 
 " VIM 插件 nerdtree 配置
-let g:NERDTreeDirArrowExpandable = '👉'
-let g:NERDTreeDirArrowCollapsible = '👇'
+let g:NERDTreeDirArrowExpandable  = '🐳'
+let g:NERDTreeDirArrowCollapsible = '💥'
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
@@ -109,8 +109,9 @@ endif
 let g:gutentags_cache_dir = s:vim_tags
 
 " VIM 插件 Vista 配置
+let g:vista_fold_toggle_icons    = ['🐳', '💥']
 let g:vista#renderer#enable_icon = 1
-let g:vista_default_executive = 'ctags'
+let g:vista_default_executive    = 'ctags'
 
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
