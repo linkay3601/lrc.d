@@ -35,6 +35,11 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
+nnoremap <leader>h  :LeaderfHistoryCmd<CR>
+nnoremap <leader>m  :LeaderfFunction<CR>
+nnoremap <leader>l  :LeaderfLine<CR>
+nnoremap <leader>am :LeaderfFunctionAll<CR>
+nnoremap <leader>al :LeaderfLineAll<CR>
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>tt :Vista!!<CR>
@@ -75,6 +80,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " VIM 插件 LeaderF 配置
 let g:Lf_WindowPosition = 'popup'
+let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "Hack Nerd Font Mono" }
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
@@ -123,6 +129,9 @@ let g:which_key_map.u = 'N 转换单词为小写'
 let g:which_key_map.U = 'N 转换单词为大写'
 let g:which_key_map.f = 'LF 搜索 file'
 let g:which_key_map.b = 'LF 搜索 buffer'
+let g:which_key_map.h = 'LF 搜索 history command'
+let g:which_key_map.m = 'LF 搜索 function'
+let g:which_key_map.l = 'LF 搜索 line'
 
 let g:which_key_map['?'] = {
     \ 'name': '+Prefix-Explain',
@@ -173,6 +182,10 @@ let g:which_key_map['+'] = {
     \ 'l-<C-P>': ['', '预览结果'                         ],
     \ 'l-<C-⍐>': ['', '向上滚动预览窗口'                 ],
     \ 'l-<C-⍗>': ['', '向下滚动预览窗口'                 ],
+    \ 'i-<C-k>': ['', '向上移动'                         ],
+    \ 'i-<C-j>': ['', '向下移动'                         ],
+    \ 'i-<C-h>': ['', '向左移动'                         ],
+    \ 'i-<C-l>': ['', '向右移动'                         ],
     \ }
 
 let g:which_key_map['-'] = {
@@ -215,6 +228,12 @@ let g:which_key_map.p = {
     \ 'name': '+Python',
     \ 'r': 'N 运行当前文件'      ,
     \ 'o': 'N 交互式运行当前文件',
+    \ }
+
+let g:which_key_map.a = {
+    \ 'name': '+All-LeaderF-Command',
+    \ 'm': 'LF 搜索 all function',
+    \ 'l': 'LF 搜索 all line'    ,
     \ }
 
 let g:which_key_map.w = {
