@@ -4,13 +4,12 @@ if filereadable(expand("$HOME/.rc.d/vimrc"))
 endif
 
 " VIM 自定义
-color sublimemonokai
 set nojoinspaces                             " 连接行时，忽略末尾特殊字符
 set ttimeout timeoutlen=3000 ttimeoutlen=10  " 超时时间
 set mouse=nv                                 " 启用鼠标
 set colorcolumn=101                          " 界面标尺宽度
-set termguicolors                            " GUI 颜色支持
-let g:sublimemonokai_term_italic = 1         " 斜体支持
+" hi ColorColumn ctermbg=gray
+" set termguicolors                          " GUI 颜色支持
 let g:mapleader = "\<Space>"
 
 " VIM 常用映射
@@ -58,7 +57,10 @@ Plug 'ryanoasis/vim-devicons'                                 "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}               "
 Plug 'ludovicchabant/vim-gutentags'                           "
 Plug 'liuchengxu/vista.vim'                                   "
+Plug 'morhetz/gruvbox'                                        "
 call plug#end()
+
+color gruvbox
 
 " VIM 插件 vim-startify 配置
 let g:startify_custom_header = [
