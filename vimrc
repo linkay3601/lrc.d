@@ -21,6 +21,11 @@ unmap <C-l>
 vnoremap < <gv
 vnoremap > >gv
 
+inoremap <C-j> <C-o>o
+inoremap <C-k> <C-o>O
+inoremap <C-h> <C-o>I
+inoremap <C-l> <C-o>A
+
 nnoremap <leader>d  :nohl<CR>
 nnoremap <leader>pr :!python %<CR>
 nnoremap <leader>po :!python -i %<CR>
@@ -203,10 +208,10 @@ let g:which_key_map['+'] = {
     \ 'l-<C-P>': ['', '预览结果'                         ],
     \ 'l-<C-⍐>': ['', '向上滚动预览窗口'                 ],
     \ 'l-<C-⍗>': ['', '向下滚动预览窗口'                 ],
-    \ 'i-<C-k>': ['', '向上移动'                         ],
-    \ 'i-<C-j>': ['', '向下移动'                         ],
-    \ 'i-<C-h>': ['', '向左移动'                         ],
-    \ 'i-<C-l>': ['', '向右移动'                         ],
+    \ 'i-<C-k>': ['', '向上插入一行'                     ],
+    \ 'i-<C-j>': ['', '向下插入一行'                     ],
+    \ 'i-<C-h>': ['', '移动到行首插入'                   ],
+    \ 'i-<C-l>': ['', '移动到行尾插入'                   ],
     \ }
 
 let g:which_key_map['-'] = {

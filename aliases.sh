@@ -3,6 +3,7 @@ alias cp='cp -v'
 
 # Git alias
 alias gtg='git tag -l -n'
+alias curl='curl -fsSL'
 
 # macOS alias
 if [ `uname` = "Darwin" ]; then
