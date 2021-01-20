@@ -20,10 +20,6 @@ unmap <C-l>
 
 vnoremap < <gv
 vnoremap > >gv
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
 
 nnoremap <leader>d  :nohl<CR>
 nnoremap <leader>pr :!python %<CR>
@@ -62,6 +58,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}               "
 Plug 'ludovicchabant/vim-gutentags'                           "
 Plug 'liuchengxu/vista.vim'                                   "
 Plug 'morhetz/gruvbox'                                        "
+Plug 'honza/vim-snippets'                                     "
 call plug#end()
 
 color gruvbox
@@ -126,6 +123,27 @@ endfunction
 set statusline+=%{NearestMethodOrFunction()}
 
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+" COC 插件 coc-snippets 配置
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " VIM 插件 vim-which-key 配置
 let g:which_key_map = {}
