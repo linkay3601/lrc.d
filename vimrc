@@ -34,6 +34,7 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
+nnoremap <leader>wq <C-w>q
 nnoremap <leader>h  :LeaderfHistoryCmd<CR>
 nnoremap <leader>m  :LeaderfFunction<CR>
 nnoremap <leader>l  :LeaderfLine<CR>
@@ -246,6 +247,7 @@ let g:which_key_map.w = {
     \ 'k': 'N 移动到上侧窗口'  ,
     \ 'h': 'N 移动到左侧窗口'  ,
     \ 'l': 'N 移动到右侧窗口'  ,
+    \ 'q': 'N 关闭当前窗口'    ,
     \ }
 
 call which_key#register('<Space>', "g:which_key_map")
