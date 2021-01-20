@@ -37,6 +37,7 @@ nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>wq <C-w>q
 nnoremap <leader>h  :LeaderfHistoryCmd<CR>
+nnoremap <leader>s  :LeaderfHistorySearch<CR>
 nnoremap <leader>m  :LeaderfFunction<CR>
 nnoremap <leader>l  :LeaderfLine<CR>
 nnoremap <leader>am :LeaderfFunctionAll<CR>
@@ -137,6 +138,7 @@ let g:which_key_map.d = 'N 取消高亮搜索'
 let g:which_key_map.f = 'LF 搜索 file'
 let g:which_key_map.b = 'LF 搜索 buffer'
 let g:which_key_map.h = 'LF 搜索 history command'
+let g:which_key_map.s = 'LF 搜索 history search command'
 let g:which_key_map.m = 'LF 搜索 function'
 let g:which_key_map.l = 'LF 搜索 line'
 
