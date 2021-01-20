@@ -133,6 +133,7 @@ let g:which_key_use_floating_win = 0
 
 let g:which_key_map.u = 'N 转换单词为小写'
 let g:which_key_map.U = 'N 转换单词为大写'
+let g:which_key_map.d = 'N 取消高亮搜索'
 let g:which_key_map.f = 'LF 搜索 file'
 let g:which_key_map.b = 'LF 搜索 buffer'
 let g:which_key_map.h = 'LF 搜索 history command'
