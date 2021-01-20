@@ -86,8 +86,9 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " VIM 插件 LeaderF 配置
 let g:Lf_WindowPosition = 'popup'
-let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_PreviewInPopup = 1
+let g:Lf_RootMarkers = ['.git', '.hg', '.svn', '.venv']
+let g:Lf_WorkingDirectoryMode = 'AF'
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "Hack Nerd Font Mono" }
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 
