@@ -43,6 +43,7 @@ nnoremap <leader>am :LeaderfFunctionAll<CR>
 nnoremap <leader>al :LeaderfLineAll<CR>
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
 nnoremap <leader>tt :Vista!!<CR>
 
 " VIM 插件配置
@@ -53,9 +54,9 @@ Plug 'mhinz/vim-startify'                                     "
 Plug 'vim-airline/vim-airline'                                "
 Plug 'Yggdroot/indentLine'                                    "
 Plug 'preservim/nerdtree'                                     "
+Plug 'ryanoasis/vim-devicons'                                 "
 Plug 'tpope/vim-fugitive'                                     "
 Plug 'Yggdroot/LeaderF', {'do': ':LeaderfInstallCExtension'}  "
-Plug 'ryanoasis/vim-devicons'                                 "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}               "
 Plug 'ludovicchabant/vim-gutentags'                           "
 Plug 'liuchengxu/vista.vim'                                   "
@@ -222,6 +223,7 @@ let g:which_key_map.n = {
     \ 'name': '+NERDTree',
     \ 'n': 'N 显示/关闭 NERDTree',
     \ 'r': 'N 刷新 NERDTree'     ,
+    \ 'f': 'N 展开当前文件位置'  ,
     \ }
 
 let g:which_key_map.t = {
