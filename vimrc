@@ -25,6 +25,7 @@ inoremap <C-j> <Down>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
+nnoremap <leader>d  :nohl<CR>
 nnoremap <leader>pr :!python %<CR>
 nnoremap <leader>po :!python -i %<CR>
 nnoremap <leader>U gUaw
