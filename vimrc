@@ -26,26 +26,37 @@ inoremap <C-k> <C-o>O
 inoremap <C-h> <C-o>I
 inoremap <C-l> <C-o>A
 
-nnoremap <leader>d  :nohl<CR>
-nnoremap <leader>pr :!python %<CR>
-nnoremap <leader>po :!python -i %<CR>
 nnoremap <leader>U gUaw
 nnoremap <leader>u guaw
+nnoremap <leader>d :nohl<CR>
+
+nnoremap <leader>pr :!python %<CR>
+nnoremap <leader>po :!python -i %<CR>
+
+nnoremap <leader>w] <C-w>+
+nnoremap <leader>w[ <C-w>-
 nnoremap <leader>ww <C-w><C-w>
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>wq <C-w>q
+
 nnoremap <leader>h  :LeaderfHistoryCmd<CR>
 nnoremap <leader>s  :LeaderfHistorySearch<CR>
 nnoremap <leader>m  :LeaderfFunction<CR>
 nnoremap <leader>l  :LeaderfLine<CR>
+nnoremap <leader>M  :LeaderfMruCwd<CR>
 nnoremap <leader>am :LeaderfFunctionAll<CR>
+nnoremap <leader>ab :LeaderfBufferAll<CR>
+nnoremap <leader>aM :LeaderfMru<CR>
 nnoremap <leader>al :LeaderfLineAll<CR>
+nnoremap <leader>ac :LeaderfSelf<CR>
+nnoremap <leader>ae :LeaderfCommand<CR>
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
+nnoremap <leader>ni :NERDTree ~/src<CR>
 nnoremap <leader>tt :Vista!!<CR>
 
 " VIM 插件配置
@@ -158,6 +169,7 @@ let g:which_key_map.h = 'LF 搜索 history command'
 let g:which_key_map.s = 'LF 搜索 history search command'
 let g:which_key_map.m = 'LF 搜索 function'
 let g:which_key_map.l = 'LF 搜索 line'
+let g:which_key_map.M = 'LF 搜索 Mru'
 
 let g:which_key_map['?'] = {
     \ 'name': '+Prefix-Explain',
@@ -170,7 +182,7 @@ let g:which_key_map['?'] = {
     \ 'V'   : ['', 'Visual 模式'      ],
     \ 'I'   : ['', 'Insert 模式'      ],
     \ 'VM'  : ['', 'Visual-Multi 模式'],
-    \ 'LF':   ['', 'LeaderF 模式'     ],
+    \ 'LF'  : ['', 'LeaderF 模式'     ],
     \ }
 
 let g:which_key_map['+'] = {
@@ -244,6 +256,7 @@ let g:which_key_map.n = {
     \ 'n': 'N 显示/关闭 NERDTree',
     \ 'r': 'N 刷新 NERDTree'     ,
     \ 'f': 'N 展开当前文件位置'  ,
+    \ 'i': 'N 展开工作目录'      ,
     \ }
 
 let g:which_key_map.t = {
@@ -259,8 +272,12 @@ let g:which_key_map.p = {
 
 let g:which_key_map.a = {
     \ 'name': '+All-LeaderF-Command',
-    \ 'm': 'LF 搜索 all function',
-    \ 'l': 'LF 搜索 all line'    ,
+    \ 'm': 'LF 搜索 all function'    ,
+    \ 'l': 'LF 搜索 all line'        ,
+    \ 'b': 'LF 搜索 all buffer'      ,
+    \ 'M': 'LF 搜索 all Mru'         ,
+    \ 'c': 'LF 搜索 all Self command',
+    \ 'e': 'LF 搜索 all Ex command'  ,
     \ }
 
 let g:which_key_map.w = {
@@ -271,6 +288,12 @@ let g:which_key_map.w = {
     \ 'h': 'N 移动到左侧窗口'  ,
     \ 'l': 'N 移动到右侧窗口'  ,
     \ 'q': 'N 关闭当前窗口'    ,
+    \ ']': 'N 调整窗口尺寸 +'  ,
+    \ '[': 'N 调整窗口尺寸 -'  ,
+    \ }
+
+let g:which_key_map.r = {
+    \ 'name': '+Rg',
     \ }
 
 call which_key#register('<Space>', "g:which_key_map")
