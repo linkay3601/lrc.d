@@ -2,7 +2,7 @@
 alias cp='cp -v'
 
 # Git alias
-alias gtg='git tag -l -n'
+alias gtg='git tag -n'
 alias curl='curl -fsSL'
 
 # macOS alias

@@ -6,7 +6,7 @@ endif
 " VIM 自定义
 set nojoinspaces                             " 连接行时，忽略末尾特殊字符
 set ttimeout timeoutlen=3000 ttimeoutlen=10  " 超时时间
-set mouse=nv                                 " 启用鼠标
+set mouse=ni                                 " 启用鼠标
 set colorcolumn=101                          " 界面标尺宽度
 " hi ColorColumn ctermbg=gray
 " set termguicolors                          " GUI 颜色支持
@@ -25,6 +25,7 @@ inoremap <C-j> <C-o>o
 inoremap <C-k> <C-o>O
 inoremap <C-h> <C-o>I
 inoremap <C-l> <C-o>A
+inoremap <C-s> <Esc>:up<CR>
 
 nnoremap <leader>U gUaw
 nnoremap <leader>u guaw
@@ -57,7 +58,12 @@ nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 nnoremap <leader>ni :NERDTree ~/src<CR>
-nnoremap <leader>tt :Vista!!<CR>
+nnoremap <leader>ii :Vista!!<CR>
+nnoremap <leader>ga :Git difftool -y<CR>
+nnoremap <leader>gf :Ghdiffsplit<CR>
+nnoremap <leader>tc :tabc<CR>
+nnoremap <leader>tn :tabn<CR>
+nnoremap <leader>tp :tabp<CR>
 
 " VIM 插件配置
 call plug#begin('~/.vim/plugged')
@@ -167,7 +173,7 @@ let g:which_key_map.f = 'LF 搜索 file'
 let g:which_key_map.b = 'LF 搜索 buffer'
 let g:which_key_map.h = 'LF 搜索 history command'
 let g:which_key_map.s = 'LF 搜索 history search command'
-let g:which_key_map.m = 'LF 搜索 function'
+let g:which_key_map.m = 'LF 搜索 method'
 let g:which_key_map.l = 'LF 搜索 line'
 let g:which_key_map.M = 'LF 搜索 Mru'
 
@@ -259,7 +265,7 @@ let g:which_key_map.n = {
     \ 'i': 'N 展开工作目录'      ,
     \ }
 
-let g:which_key_map.t = {
+let g:which_key_map.i = {
     \ 'name': '+Vista',
     \ 't': 'N 显示/关闭 Vista',
     \ }
@@ -271,13 +277,13 @@ let g:which_key_map.p = {
     \ }
 
 let g:which_key_map.a = {
-    \ 'name': '+All-LeaderF-Command',
+    \ 'name': '+LeaderF-All-Search',
     \ 'm': 'LF 搜索 all function'    ,
     \ 'l': 'LF 搜索 all line'        ,
     \ 'b': 'LF 搜索 all buffer'      ,
     \ 'M': 'LF 搜索 all Mru'         ,
-    \ 'c': 'LF 搜索 all Self command',
-    \ 'e': 'LF 搜索 all Ex command'  ,
+    \ 'c': 'LF 搜索 all self command',
+    \ 'e': 'LF 搜索 all ex command'  ,
     \ }
 
 let g:which_key_map.w = {
@@ -294,6 +300,19 @@ let g:which_key_map.w = {
 
 let g:which_key_map.r = {
     \ 'name': '+Rg',
+    \ }
+
+let g:which_key_map.g = {
+    \ 'name': '+Git',
+    \ 'a': '调用 difftool 比较与上一次提交的差异'        ,
+    \ 'f': '调用 difftool 比较当前文件与上一次提交的差异',
+    \ }
+
+let g:which_key_map.t = {
+    \ 'name': '+Tabs',
+    \ 'c': 'N 关闭当前标签页'  ,
+    \ 'n': 'N 转到下一个标签页',
+    \ 'p': 'N 转到上一个标签页',
     \ }
 
 call which_key#register('<Space>', "g:which_key_map")
