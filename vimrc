@@ -1,9 +1,9 @@
-" source .rc.d/vimrc
+" 借鉴 Seamile 老师配置 .rc.d/vimrc
 if filereadable(expand("$HOME/.rc.d/vimrc"))
     source $HOME/.rc.d/vimrc
 endif
 
-" VIM 自定义
+" 自定义配置
 set nojoinspaces                             " 连接行时，忽略末尾特殊字符
 set ttimeout timeoutlen=3000 ttimeoutlen=10  " 超时时间
 set mouse=ni                                 " 启用鼠标
@@ -12,7 +12,7 @@ set colorcolumn=101                          " 界面标尺宽度
 " set termguicolors                          " GUI 颜色支持
 let g:mapleader = "\<Space>"
 
-" VIM 常用映射
+" 常用映射
 unmap [r
 unmap [o
 unmap <C-j>
@@ -27,13 +27,8 @@ inoremap <C-h> <C-o>I
 inoremap <C-l> <C-o>A
 inoremap <C-s> <Esc>:up<CR>
 
-nnoremap <leader>U gUaw
-nnoremap <leader>u guaw
-nnoremap <leader>d :nohl<CR>
-
-nnoremap <leader>pr :!python %<CR>
-nnoremap <leader>po :!python -i %<CR>
-
+nnoremap <leader>U  gUaw
+nnoremap <leader>u  guaw
 nnoremap <leader>w] <C-w>+
 nnoremap <leader>w[ <C-w>-
 nnoremap <leader>ww <C-w><C-w>
@@ -42,6 +37,10 @@ nnoremap <leader>wj <C-w>j
 nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>wq <C-w>q
+
+nnoremap <leader>d  :nohl<CR>
+nnoremap <leader>pr :!python %<CR>
+nnoremap <leader>po :!python -i %<CR>
 
 nnoremap <leader>h  :LeaderfHistoryCmd<CR>
 nnoremap <leader>s  :LeaderfHistorySearch<CR>
@@ -65,7 +64,7 @@ nnoremap <leader>tc :tabc<CR>
 nnoremap <leader>tn :tabn<CR>
 nnoremap <leader>tp :tabp<CR>
 
-" VIM 插件配置
+" 插件管理、加载
 call plug#begin('~/.vim/plugged')
 Plug 'liuchengxu/vim-which-key'                               "
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}           "
@@ -85,7 +84,7 @@ call plug#end()
 
 color gruvbox
 
-" VIM 插件 vim-startify 配置
+" 插件 vim-startify 配置
 let g:startify_custom_header = [
 \ '  __     ___           ',
 \ '  \ \   / (_)_ __ ___  ',
@@ -96,37 +95,37 @@ let g:startify_custom_header = [
 \ '',
 \ ]
 
-" VIM 插件 vim-airline 配置
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
+" 插件 vim-airline 配置
+let g:airline_powerline_fonts                 = 1
+let g:airline#extensions#tabline#enabled      = 1
+let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter    = 'unique_tail'
 
-" VIM 插件 LeaderF 配置
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_RootMarkers = ['.git', '.hg', '.svn', '.venv']
+" 插件 LeaderF 配置
+let g:Lf_PreviewInPopup       = 1
 let g:Lf_WorkingDirectoryMode = 'AF'
-let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "Hack Nerd Font Mono" }
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+let g:Lf_WindowPosition       = 'popup'
+let g:Lf_RootMarkers          = ['.git', '.hg', '.svn', '.venv']
+let g:Lf_StlSeparator         = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "Hack Nerd Font Mono" }
+let g:Lf_PreviewResult        = {'Function': 0, 'BufTag': 0 }
 
-" VIM 插件 vim-visual-multi 配置
-let g:VM_leader = '<Space>v'
-let g:VM_maps = {}
-let g:VM_theme = 'iceblue'
+" 插件 vim-visual-multi 配置
+let g:VM_leader            = '<Space>v'
+let g:VM_theme             = 'iceblue'
 let g:VM_highlight_matches = 'underline'
+let g:VM_maps              = {}
 
 let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
 
-" VIM 插件 nerdtree 配置
+" 插件 nerdtree 配置
 let g:NERDTreeDirArrowExpandable  = '🐳'
 let g:NERDTreeDirArrowCollapsible = '💥'
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-" VIM 插件 vim-gutentags 配置
+" 插件 vim-gutentags 配置
 let g:gutentags_ctags_tagfile = '.tags'
 let s:vim_tags = expand('$HOME/.cache/tags')
 if !isdirectory(s:vim_tags)
@@ -134,7 +133,7 @@ if !isdirectory(s:vim_tags)
 endif
 let g:gutentags_cache_dir = s:vim_tags
 
-" VIM 插件 Vista 配置
+" 插件 Vista 配置
 let g:vista_fold_toggle_icons    = ['🐳', '💥']
 let g:vista#renderer#enable_icon = 1
 let g:vista_default_executive    = 'ctags'
@@ -160,11 +159,11 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-" VIM 插件 vim-which-key 配置
-let g:which_key_map = {}
-let g:which_key_position = 'topleft'
-let g:which_key_sort_horizontal = 1
+" 插件 vim-which-key 配置
+let g:which_key_sort_horizontal  = 1
 let g:which_key_use_floating_win = 0
+let g:which_key_position         = 'topleft'
+let g:which_key_map              = {}
 
 let g:which_key_map.u = 'N 转换单词为小写'
 let g:which_key_map.U = 'N 转换单词为大写'
