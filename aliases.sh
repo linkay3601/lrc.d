@@ -4,6 +4,7 @@ alias cp='cp -v'
 # Git alias
 alias gtg='git tag -n'
 alias curl='curl -fsSL'
+alias typora='open -a typora'
 
 # macOS alias
 if [ `uname` = "Darwin" ]; then
