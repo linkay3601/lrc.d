@@ -1,23 +1,91 @@
-" 借鉴 Seamile 老师配置 .rc.d/vimrc
-if filereadable(expand("$HOME/.rc.d/vimrc"))
-    source $HOME/.rc.d/vimrc
+" Seamile 老师配置
+if has("syntax")
+  syntax on
 endif
 
-" 自定义配置
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Uncomment the following to have Vim load indentation rules and plugins
+" according to the detected filetype.
+"if has("autocmd")
+"  filetype plugin indent on
+"endif
+
+" The following are commented out as they cause vim to behave a lot
+" differently from regular Vi. They are highly recommended though.
+set showcmd         " Show (partial) command in status line.
+set showmatch       " Show matching brackets.
+set ignorecase      " Do case insensitive matching
+set smartcase       " Do smart case matching
+set incsearch       " Incremental search
+
+" Source a global configuration file if available
+if filereadable("/etc/vim/vimrc.local")
+  source /etc/vim/vimrc.local
+endif
+
+"自定义
+set t_Co=256
+set background=dark     "背景色
+set nu
+set nocompatible        "非兼容模式
+set ruler               "在左下角显示当前文件所在行
+set report=0            "显示修改次数
+set nobackup            "无备份
+set fileencodings=ucs-bom,UTF-8,GBK,BIG5,latin1
+set fileencoding=UTF-8
+set fileformat=unix     "换行使用unix方式
+set wrap
+set linebreak
+set ambiwidth=double
+set noerrorbells        "不显示响铃
+set visualbell          "可视化铃声
+set foldmarker={,}      "缩进符号
+set foldmethod=indent   "缩进作为折叠标识
+set foldlevel=100       "不自动折叠
+set foldopen-=search    "搜索时不打开折叠
+set foldopen-=undo      "撤销时不打开折叠
+set updatecount=0       "不使用交换文件
+set magic               "使用正则时，除了$ . * ^以外的元字符都要加反斜线
+
+"缩进定义
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+set backspace=2     "退格键可以删除任何东西
+
+" 当前行高亮
+set cursorline
+highlight CursorLine cterm=none    ctermfg=none     ctermbg=235
+highlight LineNr     cterm=none    ctermfg=gray     ctermbg=none
+
+" 搜索结果高亮
+set hlsearch
+highlight Search     cterm=none    ctermfg=black    ctermbg=blue
+
+" vimdiff 高亮
+highlight DiffAdd    cterm=reverse ctermfg=darkcyan ctermbg=black
+highlight DiffDelete cterm=none    ctermfg=gray     ctermbg=239
+highlight DiffChange cterm=none    ctermfg=none     ctermbg=239
+highlight DiffText   cterm=bold    ctermfg=yellow   ctermbg=darkred
+
+auto BufWritePre * sil %s/\s\+$//ge "保存时删除行尾空白
+
+" -----------------------------------------------------------------------------
+" 我的配置
 set nojoinspaces                             " 连接行时，忽略末尾特殊字符
 set ttimeout timeoutlen=3000 ttimeoutlen=10  " 超时时间
 set mouse=ni                                 " 启用鼠标
 set colorcolumn=101                          " 界面标尺宽度
-" hi ColorColumn ctermbg=gray
-" set termguicolors                          " GUI 颜色支持
 let g:mapleader = "\<Space>"
 
-" 常用映射
-unmap [r
-unmap [o
-unmap <C-j>
-unmap <C-l>
-
+" 映射常用操作
 vnoremap < <gv
 vnoremap > >gv
 
@@ -64,7 +132,7 @@ nnoremap <leader>ii :Vista!!<CR>
 nnoremap <leader>ga :Git difftool -y<CR>
 nnoremap <leader>gf :Ghdiffsplit<CR>
 
-" 插件管理、加载
+" 插件管理
 call plug#begin('~/.vim/plugged')
 Plug 'liuchengxu/vim-which-key'                               "
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}           "
@@ -166,136 +234,136 @@ let g:which_key_use_floating_win = 0
 let g:which_key_position         = 'topleft'
 let g:which_key_map              = {}
 
-let g:which_key_map.u = 'N 转换单词为小写'
-let g:which_key_map.U = 'N 转换单词为大写'
-let g:which_key_map.d = 'N 取消高亮搜索'
-let g:which_key_map.f = 'LF 搜索 file'
-let g:which_key_map.b = 'LF 搜索 buffer'
-let g:which_key_map.h = 'LF 搜索 history command'
-let g:which_key_map.s = 'LF 搜索 history search command'
-let g:which_key_map.m = 'LF 搜索 method'
-let g:which_key_map.l = 'LF 搜索 line'
-let g:which_key_map.M = 'LF 搜索 Mru'
+let g:which_key_map.u = 'N Translate lower'
+let g:which_key_map.U = 'N Translate upper'
+let g:which_key_map.d = 'N Cancel search highlight'
+let g:which_key_map.f = 'LF Search file'
+let g:which_key_map.b = 'LF Search buffer'
+let g:which_key_map.h = 'LF Search history command'
+let g:which_key_map.s = 'LF Search history search command'
+let g:which_key_map.m = 'LF Search method'
+let g:which_key_map.l = 'LF Search line'
+let g:which_key_map.M = 'LF Search Mru'
 
 let g:which_key_map['?'] = {
     \ 'name': '+Prefix-Explain',
-    \ 'n-'  : ['', 'Normal 模式'      ],
-    \ 'i-'  : ['', 'Insert 模式'      ],
-    \ 'v-'  : ['', 'Visual 模式'      ],
-    \ 'm-'  : ['', 'Visual-Multi 模式'],
-    \ 'l-'  : ['', 'LeaderF 模式'     ],
-    \ 'N'   : ['', 'Normal 模式'      ],
-    \ 'V'   : ['', 'Visual 模式'      ],
-    \ 'I'   : ['', 'Insert 模式'      ],
-    \ 'VM'  : ['', 'Visual-Multi 模式'],
-    \ 'LF'  : ['', 'LeaderF 模式'     ],
+    \ 'n-'  : ['', 'Normal Mode'],
+    \ 'i-'  : ['', 'Insert Mode'],
+    \ 'v-'  : ['', 'Visual Mode'],
+    \ 'm-'  : ['', 'Visual-Multi Mode'],
+    \ 'l-'  : ['', 'LeaderF Mode'],
+    \ 'N'   : ['', 'Normal Mode'],
+    \ 'V'   : ['', 'Visual Mode'],
+    \ 'I'   : ['', 'Insert Mode'],
+    \ 'VM'  : ['', 'Visual-Multi Mode'],
+    \ 'LF'  : ['', 'LeaderF Mode'],
     \ }
 
 let g:which_key_map['+'] = {
     \ 'name': '+Ctrl',
-    \ 'm-<C-⍐>': ['', '向上创建光标'                     ],
-    \ 'm-<C-⍗>': ['', '向下创建光标'                     ],
-    \ 'n-<C-N>': ['', '选中单词为 pattern ，并查找下一个'],
-    \ 'v-<C-N>': ['', '选中可视区域为 pattern'           ],
-    \ 'i-<C-O>': ['', '临时进入 Normal 模式'             ],
-    \ 'n-<C-O>': ['', '跳转上一个位置'                   ],
-    \ 'n-<C-I>': ['', '跳转下一个位置'                   ],
-    \ 'n-<C-V>': ['', '可视化块模式'                     ],
-    \ 'n-<C-A>': ['', 'Number + 1'                       ],
-    \ 'n-<C-X>': ['', 'Number - 1'                       ],
-    \ 'n-<C-F>': ['', '向下滚动一页'                     ],
-    \ 'n-<C-B>': ['', '向上滚动一页'                     ],
-    \ 'n-<C-D>': ['', '向下滚动半页'                     ],
-    \ 'n-<C-U>': ['', '向上滚动半页'                     ],
-    \ 'n-<C-G>': ['', '显示文件信息'                     ],
-    \ 'l-<C-C>': ['', '退出'                             ],
-    \ 'l-<C-R>': ['', '切换 Fuzzy/Regex'                 ],
-    \ 'l-<C-F>': ['', '切换 FuzzyPath/NameOnly'          ],
-    \ 'l-<C-V>': ['', '从剪切板粘贴'                     ],
-    \ 'l-<C-U>': ['', '清除输入内容'                     ],
-    \ 'l-<C-W>': ['', '向前删除单词'                     ],
-    \ 'l-<C-J>': ['', '搜索结果中向上移动'               ],
-    \ 'l-<C-K>': ['', '搜索结果中向下移动'               ],
-    \ 'l-<C-X>': ['', '水平切分窗口并打开指定文件'       ],
-    \ 'l-<C-]>': ['', '垂直切分窗口并打开指定文件'       ],
-    \ 'l-<C-T>': ['', '新标签页打开指定文件'             ],
-    \ 'l-<C-\>': ['', '打开文件前询问打开方式'           ],
-    \ 'l-<C-S>': ['', '选中多个指定文件'                 ],
-    \ 'l-<C-A>': ['', '选中全部文件'                     ],
-    \ 'l-<C-L>': ['', '取消选中所有文件'                 ],
-    \ 'l-<C-P>': ['', '预览结果'                         ],
-    \ 'l-<C-⍐>': ['', '向上滚动预览窗口'                 ],
-    \ 'l-<C-⍗>': ['', '向下滚动预览窗口'                 ],
-    \ 'i-<C-k>': ['', '向上插入一行'                     ],
-    \ 'i-<C-j>': ['', '向下插入一行'                     ],
-    \ 'i-<C-h>': ['', '移动到行首插入'                   ],
-    \ 'i-<C-l>': ['', '移动到行尾插入'                   ],
+    \ 'm-<C-⍐>': ['', 'Create the cursor up'],
+    \ 'm-<C-⍗>': ['', 'Create the cursor down'],
+    \ 'n-<C-N>': ['', 'Select the word as pattern and find the next one'],
+    \ 'v-<C-N>': ['', 'Select the visual area as pattern'],
+    \ 'i-<C-O>': ['', 'Temporarily enter Normal mode'],
+    \ 'n-<C-O>': ['', 'Jump to the previous position'],
+    \ 'n-<C-I>': ['', 'Jump to the next position'],
+    \ 'n-<C-V>': ['', 'Visual block mode'],
+    \ 'n-<C-A>': ['', 'Number + 1'],
+    \ 'n-<C-X>': ['', 'Number - 1'],
+    \ 'n-<C-F>': ['', 'Scroll down one page'],
+    \ 'n-<C-B>': ['', 'Scroll down one page'],
+    \ 'n-<C-D>': ['', 'Scroll down half a pag'],
+    \ 'n-<C-U>': ['', 'Scroll up half a pag'],
+    \ 'n-<C-G>': ['', 'Displays file information'],
+    \ 'l-<C-C>': ['', 'exit'],
+    \ 'l-<C-R>': ['', 'Switch Fuzzy/Regex'],
+    \ 'l-<C-F>': ['', 'Switch FuzzyPath/NameOnly'],
+    \ 'l-<C-V>': ['', 'Paste from the cutboard'],
+    \ 'l-<C-U>': ['', 'Clear the input'],
+    \ 'l-<C-W>': ['', 'Delete the word forward'],
+    \ 'l-<C-J>': ['', 'Move down in search results'],
+    \ 'l-<C-K>': ['', 'Move up in search results'],
+    \ 'l-<C-X>': ['', 'Cut the window horizontally and open the specified file'],
+    \ 'l-<C-]>': ['', 'Cut the window vertically and open the specified file'],
+    \ 'l-<C-T>': ['', 'The new tab opens the specified file'],
+    \ 'l-<C-\>': ['', 'Ask how to open the file before opening it'],
+    \ 'l-<C-S>': ['', 'Select more than one file'],
+    \ 'l-<C-A>': ['', 'Select all files'],
+    \ 'l-<C-L>': ['', 'Uncheck all files'],
+    \ 'l-<C-P>': ['', 'Preview the results'],
+    \ 'l-<C-⍐>': ['', 'Scroll up the preview window'],
+    \ 'l-<C-⍗>': ['', 'Scroll down the preview window'],
+    \ 'i-<C-k>': ['', 'Insert a row up'],
+    \ 'i-<C-j>': ['', 'Insert one line down'],
+    \ 'i-<C-h>': ['', 'Move to the top of the line to insert'],
+    \ 'i-<C-l>': ['', 'Move to the end of the line to insert'],
     \ }
 
 let g:which_key_map['-'] = {
     \ 'name': '+Shift',
-    \ 'm-<S-⍇>': ['', '向左选择字符'],
-    \ 'm-<S-⍈>': ['', '向右选择字符'],
-    \ 'i-<S-⍇>': ['', '左移一个单词'],
-    \ 'i-<S-⍈>': ['', '右移一个单词'],
+    \ 'm-<S-⍇>': ['', 'Select characters to the right'],
+    \ 'm-<S-⍈>': ['', 'Select characters to the left'],
+    \ 'i-<S-⍇>': ['', 'Move one word left'],
+    \ 'i-<S-⍈>': ['', 'Move one word right'],
     \ }
 
 let g:which_key_map.v = {
     \ 'name': '+Visual-Multi',
-    \ '/': 'N 正则搜索，并添加 pattern'                 ,
-    \ 'A': 'N 选中文件中所有匹配项'                     ,
-    \ '\': 'N 在当前位置添加光标'                       ,
-    \ 'a': 'N 光标字符对齐 |V 选中可视区域'             ,
-    \ 'f': 'V 相当于 /<last-pattern>'                   ,
-    \ 'w': 'VM 切换 word 模式'                          ,
-    \ 'c': 'VM 切换 case 模式 |V 基于可视区域创建列光标',
-    \ '>': 'VM 效果同 < 相同，且支持正则'               ,
-    \ 'N': 'VM 光标前插入排序的 Number + 键入的内容'    ,
-    \ '<': 'VM 键入字符使对齐，支持多字符'              ,
+    \ '/': 'N Regular search and add pattern',
+    \ 'A': 'N Select all matches in the file',
+    \ '\': 'N Add cursor at current position',
+    \ 'a': 'N Cursor character alignment |V Select the visible area',
+    \ 'f': 'V Same as /<last-pattern>',
+    \ 'w': 'VM Switch word mode',
+    \ 'c': 'VM Switch case mode |V Create a column cursor based on the visible area',
+    \ '>': 'VM Same as <and supports regular',
+    \ 'N': 'VM Insert the sorted Number + typed content before the cursor',
+    \ '<': 'VM Type characters to align, support multiple characters',
     \ 'g': {
-        \ 'S': 'N 恢复 VM 最后退出时的状态',
+        \ 'S': 'N Restore the state of the VM when it was last exited',
         \ }
     \ }
 
 let g:which_key_map.n = {
     \ 'name': '+NERDTree',
-    \ 'n': 'N 显示/关闭 NERDTree',
-    \ 'r': 'N 刷新 NERDTree'     ,
-    \ 'f': 'N 展开当前文件位置'  ,
-    \ 'i': 'N 展开工作目录'      ,
+    \ 'n': 'N Show/close NERDTree',
+    \ 'r': 'N Refresh NERDTree',
+    \ 'f': 'N Expand current file location',
+    \ 'i': 'N Expand working directory',
     \ }
 
 let g:which_key_map.i = {
     \ 'name': '+Vista',
-    \ 't': 'N 显示/关闭 Vista',
+    \ 't': 'N Show/turn off Vista',
     \ }
 
 let g:which_key_map.p = {
     \ 'name': '+Python',
-    \ 'r': 'N 运行当前文件'      ,
-    \ 'o': 'N 交互式运行当前文件',
+    \ 'r': 'N Run the current file',
+    \ 'o': 'N Run the current file interactively',
     \ }
 
 let g:which_key_map.a = {
     \ 'name': '+LeaderF-All-Search',
-    \ 'm': 'LF 搜索 all function'    ,
-    \ 'l': 'LF 搜索 all line'        ,
-    \ 'b': 'LF 搜索 all buffer'      ,
-    \ 'M': 'LF 搜索 all Mru'         ,
-    \ 'c': 'LF 搜索 all self command',
-    \ 'e': 'LF 搜索 all ex command'  ,
+    \ 'm': 'LF Search all function',
+    \ 'l': 'LF Search all line',
+    \ 'b': 'LF Search all buffer',
+    \ 'M': 'LF Search all Mru',
+    \ 'c': 'LF Search all self command',
+    \ 'e': 'LF Search all ex command',
     \ }
 
 let g:which_key_map.w = {
     \ 'name': '+Windows',
-    \ 'w': 'N 移动到下一个窗口',
-    \ 'j': 'N 移动到下侧窗口'  ,
-    \ 'k': 'N 移动到上侧窗口'  ,
-    \ 'h': 'N 移动到左侧窗口'  ,
-    \ 'l': 'N 移动到右侧窗口'  ,
-    \ 'q': 'N 关闭当前窗口'    ,
-    \ ']': 'N 调整窗口尺寸 +'  ,
-    \ '[': 'N 调整窗口尺寸 -'  ,
+    \ 'w': 'N Move to the next window',
+    \ 'j': 'N Move to the window below',
+    \ 'k': 'N Move to the window above',
+    \ 'h': 'N Move to the left window',
+    \ 'l': 'N Move to the right window',
+    \ 'q': 'N Close the current window',
+    \ ']': 'N Resize the window +',
+    \ '[': 'N Resize the window -',
     \ }
 
 let g:which_key_map.r = {
@@ -304,15 +372,15 @@ let g:which_key_map.r = {
 
 let g:which_key_map.g = {
     \ 'name': '+Git',
-    \ 'a': '调用 difftool 比较与上一次提交的差异'        ,
-    \ 'f': '调用 difftool 比较当前文件与上一次提交的差异',
+    \ 'a': 'N Call difftool to compare the difference from the last commit',
+    \ 'f': 'N Call difftool to compare the difference between the current file and the last commit',
     \ }
 
 let g:which_key_map.t = {
     \ 'name': '+Tabs',
-    \ 'c': 'N 关闭当前标签页'  ,
-    \ 'n': 'N 转到下一个标签页',
-    \ 'p': 'N 转到上一个标签页',
+    \ 'c': 'N Close the current tab',
+    \ 'n': 'N Go to the next tab',
+    \ 'p': 'N Go to the previous tab',
     \ }
 
 call which_key#register('<Space>', "g:which_key_map")
