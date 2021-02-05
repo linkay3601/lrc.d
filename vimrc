@@ -80,6 +80,7 @@ Plug 'ludovicchabant/vim-gutentags'                           "
 Plug 'liuchengxu/vista.vim'                                   "
 Plug 'morhetz/gruvbox'                                        "
 Plug 'honza/vim-snippets'                                     "
+Plug 'puremourning/vimspector'                                "
 call plug#end()
 
 color gruvbox
