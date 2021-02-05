@@ -27,8 +27,8 @@ inoremap <C-h> <C-o>I
 inoremap <C-l> <C-o>A
 inoremap <C-s> <Esc>:up<CR>
 
-nnoremap <leader>U  gUaw
 nnoremap <leader>u  guaw
+nnoremap <leader>U  gUaw
 nnoremap <leader>w] <C-w>+
 nnoremap <leader>w[ <C-w>-
 nnoremap <leader>ww <C-w><C-w>
@@ -39,6 +39,9 @@ nnoremap <leader>wl <C-w>l
 nnoremap <leader>wq <C-w>q
 
 nnoremap <leader>d  :nohl<CR>
+nnoremap <leader>tc :tabc<CR>
+nnoremap <leader>tn :tabn<CR>
+nnoremap <leader>tp :tabp<CR>
 nnoremap <leader>pr :!python %<CR>
 nnoremap <leader>po :!python -i %<CR>
 
@@ -60,9 +63,6 @@ nnoremap <leader>ni :NERDTree ~/src<CR>
 nnoremap <leader>ii :Vista!!<CR>
 nnoremap <leader>ga :Git difftool -y<CR>
 nnoremap <leader>gf :Ghdiffsplit<CR>
-nnoremap <leader>tc :tabc<CR>
-nnoremap <leader>tn :tabn<CR>
-nnoremap <leader>tp :tabp<CR>
 
 " 插件管理、加载
 call plug#begin('~/.vim/plugged')
