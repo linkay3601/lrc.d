@@ -21,6 +21,7 @@ alias grep='grep -I --color=auto --exclude-dir={.git,.venv}'
 alias psgrep='ps ax|grep -v grep|grep'
 alias tree='tree -N -C --dirsfirst'
 alias less='less -N'
+alias axel='axel -n 30'
 alias ping='ping -i 0.1 -c 30'
 alias ip4="ifconfig | grep -w inet | awk '{print \$2}'| sort"
 alias ip6="ifconfig | grep -w inet6 | awk '{print \$2}'| sort"
@@ -28,6 +29,7 @@ alias tailf='tail -F'
 
 alias cp='cp -v'
 alias v="vim -Nu $HOME/.lrc.d/vimrc"
+alias pping='nc -v -z -w2'
 
 # macOS alias
 if [ `uname` = "Darwin" ]; then
@@ -62,6 +64,8 @@ alias gdf='git difftool'
 alias glg='git log --stat --graph --max-count=10'
 alias gco='git checkout'
 alias gmg='git merge --no-commit --squash'
+
+alias gtg='git tag -n'
 
 # brew
 if command -v brew >/dev/null 2>&1; then
