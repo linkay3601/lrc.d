@@ -95,6 +95,11 @@ inoremap <C-h> <C-o>I
 inoremap <C-l> <C-o>A
 inoremap <C-s> <Esc>:up<CR>
 
+nnoremap <C-h> :bNext<CR>
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-j> :bfirst<CR>
+nnoremap <C-k> :blast<CR>
+
 nnoremap <leader>u  guaw
 nnoremap <leader>U  gUaw
 nnoremap <leader>w] <C-w>+
@@ -190,7 +195,7 @@ let g:VM_maps["Redo"] = '<C-r>'
 
 " 插件 nerdtree 配置
 let g:NERDTreeDirArrowExpandable  = '🐳'
-let g:NERDTreeDirArrowCollapsible = '💥'
+let g:NERDTreeDirArrowCollapsible = '👻'
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
@@ -203,7 +208,7 @@ endif
 let g:gutentags_cache_dir = s:vim_tags
 
 " 插件 Vista 配置
-let g:vista_fold_toggle_icons    = ['🐳', '💥']
+let g:vista_fold_toggle_icons    = ['🐳', '👻']
 let g:vista#renderer#enable_icon = 1
 let g:vista_default_executive    = 'ctags'
 
@@ -276,6 +281,10 @@ let g:which_key_map['+'] = {
     \ 'n-<C-D>': ['', 'Scroll down half a pag'],
     \ 'n-<C-U>': ['', 'Scroll up half a pag'],
     \ 'n-<C-G>': ['', 'Displays file information'],
+    \ 'n-<C-H>': ['', 'Go to the previous buffer'],
+    \ 'n-<C-L>': ['', 'Go to the next buffer'],
+    \ 'n-<C-J>': ['', 'Go to the first buffer'],
+    \ 'n-<C-K>': ['', 'Go to the last buffer'],
     \ 'l-<C-C>': ['', 'exit'],
     \ 'l-<C-R>': ['', 'Switch Fuzzy/Regex'],
     \ 'l-<C-F>': ['', 'Switch FuzzyPath/NameOnly'],
