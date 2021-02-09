@@ -130,7 +130,7 @@ nnoremap <leader>al :LeaderfLineAll<CR>
 nnoremap <leader>ac :LeaderfSelf<CR>
 nnoremap <leader>ae :LeaderfCommand<CR>
 nnoremap <leader>nn :NERDTreeToggle<CR>
-nnoremap <leader>nr :NERDTreeRefreshRoot<CR>
+nnoremap <leader>nr :NERDTreeRefreshRoot<CR>:NERDTreeRefreshRoot<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 nnoremap <leader>ni :NERDTree ~/src<CR>
 nnoremap <leader>ii :Vista!!<CR>
@@ -194,8 +194,8 @@ let g:VM_maps["Undo"] = 'u'
 let g:VM_maps["Redo"] = '<C-r>'
 
 " 插件 nerdtree 配置
-let g:NERDTreeDirArrowExpandable  = '🐳'
-let g:NERDTreeDirArrowCollapsible = '👻'
+let g:NERDTreeDirArrowExpandable  = '☢︎'
+let g:NERDTreeDirArrowCollapsible = '☠︎'
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
@@ -208,7 +208,7 @@ endif
 let g:gutentags_cache_dir = s:vim_tags
 
 " 插件 Vista 配置
-let g:vista_fold_toggle_icons    = ['🐳', '👻']
+let g:vista_fold_toggle_icons    = ['☢︎', '☠︎']
 let g:vista#renderer#enable_icon = 1
 let g:vista_default_executive    = 'ctags'
 
@@ -303,10 +303,10 @@ let g:which_key_map['+'] = {
     \ 'l-<C-P>': ['', 'Preview the results'],
     \ 'l-<C-⍐>': ['', 'Scroll up the preview window'],
     \ 'l-<C-⍗>': ['', 'Scroll down the preview window'],
-    \ 'i-<C-k>': ['', 'Insert a row up'],
-    \ 'i-<C-j>': ['', 'Insert one line down'],
-    \ 'i-<C-h>': ['', 'Move to the top of the line to insert'],
-    \ 'i-<C-l>': ['', 'Move to the end of the line to insert'],
+    \ 'i-<C-K>': ['', 'Insert a row up'],
+    \ 'i-<C-J>': ['', 'Insert one line down'],
+    \ 'i-<C-H>': ['', 'Move to the top of the line to insert'],
+    \ 'i-<C-L>': ['', 'Move to the end of the line to insert'],
     \ }
 
 let g:which_key_map['-'] = {
