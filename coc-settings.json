@@ -1,0 +1,7 @@
+{
+    "markdownlint.onChange": false,
+    "markdownlint.config": {
+        "MD007": false
+    }
+}
+
