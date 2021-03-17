@@ -39,6 +39,8 @@ if [ `uname` = "Darwin" ]; then
     alias power="echo Power: $(pmset -g batt|awk 'NR==2{print $3}'|sed 's/;//g')"
 
     alias typora='open -a typora'
+    alias chrome='open -a "Google Chrome"'
+    alias safari='open -a "Safari"'
 fi
 
 # Python alias
