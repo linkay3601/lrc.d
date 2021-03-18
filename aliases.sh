@@ -41,6 +41,7 @@ if [ `uname` = "Darwin" ]; then
     alias typora='open -a typora'
     alias chrome='open -a "Google Chrome"'
     alias safari='open -a "Safari"'
+    alias sublime='open -a "Sublime Text"'
 fi
 
 # Python alias
