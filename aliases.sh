@@ -30,6 +30,7 @@ alias tailf='tail -F'
 alias cp='cp -v'
 alias v="vim -Nu $HOME/.lrc.d/vimrc"
 alias pping='nc -v -z -w2'
+alias toc='gh-md-toc -'
 
 # macOS alias
 if [ `uname` = "Darwin" ]; then
