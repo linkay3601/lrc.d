@@ -11,6 +11,8 @@
 |        [aliases.sh](./aliases.sh)        | *Shell* 环境变量、别名等 |
 |      [functions.sh](./functions.sh)      |       *Shell* 函数       |
 | [coc-settings.json](./coc-settings.json) |        *coc-nvim*        |
+|         [gitconfig](./gitconfig)         |          *Git*           |
+|                                          |                          |
 |             [utils](./utils)             |          小工具          |
 
 ## 参考

@@ -69,7 +69,7 @@ alias glg='git log --stat --graph --max-count=10'
 alias gco='git checkout'
 alias gmg='git merge --no-commit --squash'
 
-alias gtg='git tag -n'
+alias gtg='git tag --list -n'
 
 # brew
 if command -v brew >/dev/null 2>&1; then
