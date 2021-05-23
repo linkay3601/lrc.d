@@ -12,7 +12,8 @@
 |      [functions.sh](./functions.sh)      |       *Shell* 函数       |
 | [coc-settings.json](./coc-settings.json) |        *coc-nvim*        |
 |         [gitconfig](./gitconfig)         |          *Git*           |
-|                                          |                          |
+|           [sublime](./sublime)           |      *Sublime Text*      |
+|            [vscode](./vscode)            |   *Visual Studio Code*   |
 |             [utils](./utils)             |          小工具          |
 
 ## 参考
