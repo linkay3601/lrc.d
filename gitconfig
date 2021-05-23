@@ -13,7 +13,7 @@
     sp = stash pop
     up = pull
     cls = remote prune origin
-	tg = tag -l -n
+	tg = tag --list -n
 [color]
     ui = true
 [diff]
