@@ -1,0 +1,75 @@
+{
+  //* 主题
+  "workbench.colorTheme": "Monokai Enhanced",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "el-vsc-v1-icons",
+
+  //* 布局
+  "editor.rulers": [80],
+  "workbench.sideBar.location": "left",
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": true,
+  "workbench.tree.renderIndentGuides": "always",
+
+  //* 忽略
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.vscode": true
+  },
+
+  //* 字体
+  "editor.fontSize": 16,
+  "editor.fontFamily": "Monaco",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "debug.console.fontSize": 14,
+  "debug.console.fontFamily": "Hack Nerd Font Mono",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+  "markdown.preview.fontSize": 16,
+
+  //* 编辑
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 4,
+  "editor.wordWrap": "off",
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "none",
+  "editor.scrollBeyondLastLine": true,
+  "editor.wrappingIndent": "same",
+  "editor.showFoldingControls": "always",
+  "editor.detectIndentation": false,
+  "window.openFilesInNewWindow": "off",
+  "[vue]": {
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+
+  //* 效率（书签）
+  "bookmarks.saveBookmarksInProject": true,
+
+  //* Jupyter
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+
+  //* Python
+  "python.pythonPath": "~/.pyenv/shims/python",
+  "python.languageServer": "Pylance",
+
+  //* 注释
+  "better-comments.multilineComments": true,
+  "better-comments.highlightPlainText": true
+}
+
