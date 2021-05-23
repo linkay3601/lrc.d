@@ -24,7 +24,6 @@
   //* 字体
   "editor.fontSize": 16,
   "editor.fontFamily": "Monaco",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "debug.console.fontSize": 14,
   "debug.console.fontFamily": "Hack Nerd Font Mono",
   "terminal.integrated.fontSize": 14,
@@ -37,23 +36,42 @@
   "editor.tabSize": 4,
   "editor.wordWrap": "off",
   "editor.renderControlCharacters": true,
-  "editor.renderWhitespace": "none",
+  "editor.renderWhitespace": "all",
   "editor.scrollBeyondLastLine": true,
   "editor.wrappingIndent": "same",
   "editor.showFoldingControls": "always",
   "editor.detectIndentation": false,
   "window.openFilesInNewWindow": "off",
   "[vue]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "octref.vetur"
   },
   "[html]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnSave": true
   },
   "[javascript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  //* 效率（书签）
+  //* 书签
   "bookmarks.saveBookmarksInProject": true,
 
   //* Jupyter
@@ -67,9 +85,20 @@
   //* Python
   "python.pythonPath": "~/.pyenv/shims/python",
   "python.languageServer": "Pylance",
+  "python.formatting.provider": "yapf",
 
   //* 注释
   "better-comments.multilineComments": true,
-  "better-comments.highlightPlainText": true
+  "better-comments.highlightPlainText": true,
+
+  //* 格式化
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "singleQuote": true,
+      "semi": false
+    }
+  }
 }
 
