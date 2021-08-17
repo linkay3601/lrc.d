@@ -89,4 +89,3 @@ fi
 if [ -f "$HOME/.lrc.d/functions.sh" ]; then
     source $HOME/.lrc.d/functions.sh
 fi
-

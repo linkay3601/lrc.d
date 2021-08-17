@@ -23,15 +23,15 @@ alias tree='tree -N -C --dirsfirst'
 alias less='less -N'
 alias aria='aria2c -c -x 16 --file-allocation=none'
 alias axel='axel -n 30'
-alias ping='ping -i 0.1 -c 30'
+alias ping='ping -i 0.2 -c 30'
 alias ip4="ifconfig | grep -w inet | awk '{print \$2}'| sort"
 alias ip6="ifconfig | grep -w inet6 | awk '{print \$2}'| sort"
 alias tailf='tail -F'
 
 alias cp='cp -v'
-alias v="vim -Nu $HOME/.lrc.d/vimrc"
-alias pping='nc -v -z -w2'
 alias toc='gh-md-toc -'
+alias pping='nc -v -z -w2'
+alias v="vim -Nu $HOME/.lrc.d/vimrc"
 
 # macOS alias
 if [ `uname` = "Darwin" ]; then

@@ -12,8 +12,8 @@
     sv = stash save
     sp = stash pop
     up = pull
+	tg = tag --list
     cls = remote prune origin
-	tg = tag --list -n
 [color]
     ui = true
 [diff]
@@ -23,3 +23,7 @@
 [core]
     editor = vim
 	quotepath = false
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
