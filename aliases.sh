@@ -14,13 +14,14 @@ alias l='ls -Clho'
 alias ll='ls -ClhF'
 alias la='ls -A'
 alias lla='ls -ClhFA'
-alias rs='rsync -crvzpP --exclude={.git,.venv,.DS_Store,__pycache__}'
+alias rs='rsync -crvzpP --exclude={.git,.venv,.DS_Store,__pycache__,.vscode,.mypy_cache}'
 alias httpserver='python -m http.server'
 alias httpserver2='python -m SimpleHTTPServer'
 alias grep='grep -I --color=auto --exclude-dir={.git,.venv}'
 alias psgrep='ps ax|grep -v grep|grep'
 alias tree='tree -N -C --dirsfirst'
 alias less='less -N'
+alias aria='aria2c -c -x 16 --file-allocation=none'
 alias axel='axel -n 30'
 alias ping='ping -i 0.1 -c 30'
 alias ip4="ifconfig | grep -w inet | awk '{print \$2}'| sort"
@@ -35,14 +36,19 @@ alias toc='gh-md-toc -'
 # macOS alias
 if [ `uname` = "Darwin" ]; then
     export HOMEBREW_NO_AUTO_UPDATE=true  # disable homebrew auto update
-    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
+    # export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+    # export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
     alias rmds='find . -type f -name .DS_Store -delete'
+    alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+    alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
     alias power="echo Power: $(pmset -g batt|awk 'NR==2{print $3}'|sed 's/;//g')"
 
     alias typora='open -a typora'
     alias chrome='open -a "Google Chrome"'
     alias safari='open -a "Safari"'
     alias sublime='open -a "Sublime Text"'
+    alias vscode='open -a "Visual Studio Code"'
 fi
 
 # Python alias
@@ -97,6 +103,10 @@ if command -v pyenv >/dev/null 2>&1; then
     alias chpy='pyenv global'
     alias chlpy='pyenv local'
     alias chgpy='pyenv global'
+fi
 
-    export PATH="$PYENV_ROOT/shims:$PATH"
+# Flutter CN mirror
+if command -v flutter >/dev/null 2>&1; then
+    export PUB_HOSTED_URL='https://pub.flutter-io.cn'
+    export FLUTTER_STORAGE_BASE_URL='https://storage.flutter-io.cn'
 fi
