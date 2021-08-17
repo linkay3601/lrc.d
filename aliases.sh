@@ -29,7 +29,10 @@ alias ip6="ifconfig | grep -w inet6 | awk '{print \$2}'| sort"
 alias tailf='tail -F'
 
 alias cp='cp -v'
+alias mv='mv -v'
 alias toc='gh-md-toc -'
+alias sed='gsed'
+alias stat='stat -x'
 alias pping='nc -v -z -w2'
 alias v="vim -Nu $HOME/.lrc.d/vimrc"
 
@@ -75,7 +78,7 @@ alias glg='git log --stat --graph --max-count=10'
 alias gco='git checkout'
 alias gmg='git merge --no-commit --squash'
 
-alias gtg='git tag --list -n'
+alias gtg='git tag --list'
 
 # brew
 if command -v brew >/dev/null 2>&1; then
