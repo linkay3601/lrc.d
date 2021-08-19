@@ -1,4 +1,4 @@
-" Seamile 配置
+" Teacher Seamile 配置
 if has("syntax")
   syntax on
 endif
