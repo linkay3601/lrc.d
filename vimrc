@@ -156,7 +156,7 @@ Plug 'honza/vim-snippets'                                     "
 Plug 'puremourning/vimspector'                                "
 call plug#end()
 
-color desert
+color gruvbox
 
 " 插件 vim-startify 配置
 let g:startify_custom_header = [
