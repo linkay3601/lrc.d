@@ -132,7 +132,7 @@ nnoremap <leader>ae :LeaderfCommand<CR>
 nnoremap <leader>nn :NERDTreeToggle<CR>
 nnoremap <leader>nr :NERDTreeRefreshRoot<CR>:NERDTreeRefreshRoot<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
-nnoremap <leader>ni :NERDTree ~/src<CR>
+nnoremap <leader>ni :NERDTree ~/Src/lang<CR>
 nnoremap <leader>ii :Vista!!<CR>
 nnoremap <leader>ga :Git difftool -y<CR>
 nnoremap <leader>gf :Ghdiffsplit<CR>
