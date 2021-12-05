@@ -106,8 +106,6 @@ if command -v pyenv >/dev/null 2>&1; then
     alias chpy='pyenv global'
     alias chlpy='pyenv local'
     alias chgpy='pyenv global'
-
-    alias pyi='eval "$(pyenv init -)"'
 fi
 
 # Flutter CN mirror

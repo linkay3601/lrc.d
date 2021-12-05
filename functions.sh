@@ -27,3 +27,14 @@ tkill() {
     fi
 }
 
+# Enable Pyenv
+pyinit() {
+    if pyenv versions > /dev/null; then
+        eval "$(pyenv init --path)"
+        eval "$(pyenv init -)"
+
+        echo 'Python env is enabled'
+    else
+        echo "Can't find pyenv command!"
+    fi
+}
