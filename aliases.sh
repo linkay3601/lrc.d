@@ -87,6 +87,9 @@ if command -v brew >/dev/null 2>&1; then
     export LDFLAGS="-L$BREWHOME/lib"
     export CPPFLAGS="-I$BREWHOME/include"
     export PKG_CONFIG_PATH="$BREWHOME/lib/pkgconfig"
+
+    # Bind keys
+    bindkey \^U backward-kill-line
 fi
 
 # Golang env
